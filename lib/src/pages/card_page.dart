@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CardPage extends StatelessWidget {
+  static final pageName = 'card';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +15,42 @@ class CardPage extends StatelessWidget {
           SizedBox(
             height: 30.0,
           ),
-          _cardType2()
+          _cardType2(),
+          SizedBox(
+            height: 30.0,
+          ),
+          _cardType1(),
+          SizedBox(
+            height: 30.0,
+          ),
+          _cardType2(),
+          SizedBox(
+            height: 30.0,
+          ),
+          _cardType1(),
+          SizedBox(
+            height: 30.0,
+          ),
+          _cardType2(),
+          SizedBox(
+            height: 30.0,
+          ),
+          _cardType1(),
+          SizedBox(
+            height: 30.0,
+          ),
+          _cardType2(),
+          SizedBox(
+            height: 30.0,
+          ),
+          _cardType1(),
+          SizedBox(
+            height: 30.0,
+          ),
+          _cardType2(),
+          SizedBox(
+            height: 30.0,
+          ),
         ],
       ),
     );
@@ -22,6 +58,8 @@ class CardPage extends StatelessWidget {
 
   Widget _cardType1() {
     return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       child: Column(
         children: <Widget>[
           ListTile(
@@ -46,7 +84,8 @@ class CardPage extends StatelessWidget {
   }
 
   Widget _cardType2() {
-    return Card(
+    final card = Container(
+      // clipBehavior: Clip.antiAlias, don't work
       child: Column(
         children: <Widget>[
           FadeInImage(
@@ -54,7 +93,7 @@ class CardPage extends StatelessWidget {
             image: NetworkImage(
                 'https://iso.500px.com/wp-content/uploads/2017/10/PhotographingTwilight_TannerWendellStewart-218136823.jpg'),
             fadeInDuration: Duration(milliseconds: 200),
-            height: 300.0,
+            height: 320.0,
             fit: BoxFit.cover,
           ),
 
@@ -64,6 +103,23 @@ class CardPage extends StatelessWidget {
           Container(
               padding: EdgeInsets.all(10.0), child: Text('A beautiful image'))
         ],
+      ),
+    );
+
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.0),
+          color: Colors.white,
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: Colors.black26,
+                blurRadius: 10.0,
+                spreadRadius: 2.0,
+                offset: Offset(2.0, 10.0))
+          ]),
+      child: ClipRRect(
+        child: card,
+        borderRadius: BorderRadius.circular(30.0),
       ),
     );
   }
